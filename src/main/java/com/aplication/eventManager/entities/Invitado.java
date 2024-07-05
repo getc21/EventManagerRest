@@ -1,6 +1,7 @@
 package com.aplication.eventManager.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -49,5 +50,6 @@ public class Invitado {
 
     @ManyToOne
     @JoinColumn(name = "id_evento", nullable = false)
+    @JsonIgnore
     private Evento evento;
 }

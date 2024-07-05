@@ -1,6 +1,7 @@
 package com.aplication.eventManager.entities;
 
 import com.aplication.eventManager.entities.Invitado;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime; // Usar LocalDateTime para fechas y horas
@@ -40,5 +41,6 @@ public class Evento {
     private String organizador;
 
     @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
     private List<Invitado> invitadoList = new ArrayList<>();
 }
